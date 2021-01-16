@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Validator
+namespace ValidatorProject
 {
-    public static class Extensions
+    public static class MyExtensions
     {
         public static void PrintToConsole<T>(this IEnumerable<T> input, string str = "")
         {
