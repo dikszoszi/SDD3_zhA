@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace Validator
+namespace ValidatorProject
 {
     [AttributeUsage(AttributeTargets.Property)]
-    internal class DbPropertyNameAttribute : Attribute
+    public sealed class DbPropertyNameAttribute : Attribute
     {
         public DbPropertyNameAttribute(string name)
         {

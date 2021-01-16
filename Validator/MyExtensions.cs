@@ -7,6 +7,12 @@ namespace ValidatorProject
     {
         public static void PrintToConsole<T>(this IEnumerable<T> input, string str = "")
         {
+            if (input is null)
+            {
+                Console.WriteLine("Nothing to print!");
+                return;
+            }
+
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("\n\tBEGIN: " + str);
             Console.ResetColor();

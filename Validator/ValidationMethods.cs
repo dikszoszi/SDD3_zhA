@@ -1,19 +1,16 @@
-﻿namespace Validator
+﻿namespace ValidatorProject
 {
-    public class ValidationMethods
+    public static class ValidationMethods
     {
         public static bool NotNull(object obj)
         {
             return obj is not null;
         }
 
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Maintainability", "CA1508:Avoid dead conditional code", Justification = "false positive")]
         public static bool NotEmpty(object obj)
         {
-            if (obj is string str)
-            {
-                return !string.IsNullOrEmpty(str);
-            }
-            return false;
+            return !string.IsNullOrWhiteSpace(obj as string);
         }
     }
 }

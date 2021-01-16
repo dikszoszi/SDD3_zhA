@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace Validator.Tables
+namespace ValidatorProject.Tables
 {
     public partial class PersonDbContext : DbContext
     {
@@ -21,6 +21,8 @@ namespace Validator.Tables
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            if (optionsBuilder is null) throw new ArgumentNullException(nameof(optionsBuilder));
+
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseLazyLoadingProxies()
@@ -30,6 +32,8 @@ namespace Validator.Tables
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            if (modelBuilder is null) throw new ArgumentNullException(nameof(modelBuilder));
+
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
             modelBuilder.Entity<PersonTable>(entity =>

@@ -1,6 +1,5 @@
-﻿namespace Validator
+﻿namespace ValidatorProject
 {
-    using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
 
@@ -8,8 +7,10 @@
     {
         public static void ConvertProperties(object source, object destination)
         {
-            IEnumerable<PropertyInfo> sourceProperties = source.GetType().GetProperties()
-                .Where(pinfo => pinfo.GetCustomAttributes(typeof(DbPropertyNameAttribute), false).Length > 0);
+            if (source is null || destination is null) return;
+            var sourceProperties = from pinfo in source.GetType().GetProperties()
+                                   where pinfo.GetCustomAttributes(typeof(DbPropertyNameAttribute), false).Length > 0
+                                   select pinfo;
             foreach (PropertyInfo sourceProp in sourceProperties)
             {
                 destination.GetType()

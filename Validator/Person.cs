@@ -1,4 +1,4 @@
-﻿namespace Validator
+﻿namespace ValidatorProject
 {
     public class Person
     {

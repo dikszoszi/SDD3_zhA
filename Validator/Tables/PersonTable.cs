@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 #nullable disable
 
-namespace Validator.Tables
+namespace ValidatorProject.Tables
 {
     public partial class PersonTable
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace Validator
+namespace ValidatorProject
 {
     [AttributeUsage(AttributeTargets.Property)]
-    public class NotNullAttribute : Attribute
+    public sealed class NotNullAttribute : Attribute
     {
     }
 }
