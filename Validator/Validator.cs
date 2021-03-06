@@ -10,7 +10,7 @@
         public static bool Validate(object obj, out string result)
         {
             if (obj is null) throw new ArgumentNullException(nameof(obj));
-            List<bool> validityChecks = new List<bool>();
+            List<bool> validityChecks = new ();
             //PropertyInfo[] properties = obj.GetType().GetProperties();
 
             result = string.Concat(obj.GetType().GetProperties().Select(pinfo =>

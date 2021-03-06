@@ -14,10 +14,10 @@ namespace ValidatorProject
         private static void Main()
         {
             IEnumerable<Person> people = GetPersonFromXml(@"Resources\people.xml");
-            PersonDbContext ctx = new PersonDbContext();
+            PersonDbContext ctx = new ();
             foreach (Person person in people)
             {
-                PersonTable personT = new PersonTable();
+                PersonTable personT = new ();
                 Converter.ConvertProperties(person, personT);
                 ctx.People.Add(personT);
             }
@@ -30,10 +30,10 @@ namespace ValidatorProject
         {
             XDocument xDoc = XDocument.Load(path);
             int id = 0;
-            List<Person> persons = new List<Person>();
+            List<Person> persons = new ();
             foreach (XElement element in xDoc.Descendants("person"))
             {
-                Person newPerson = new Person(element)
+                Person newPerson = new (element)
                 {
                     Id = ++id,
                 };
